@@ -1,18 +1,18 @@
-<?php include_once "config.php" ?>
-<!doctype html>
-<html>
-<head>   
-    <?php include_once "template/head.php" ?>
-</head>
+<?php
+session_start();
+include_once "function.php";
+$nameAPP="Računanje kalorija";
 
-<body>
-   <?php include_once "template/header.php" ?>
-   <?php include_once "template/navigation.php" ?> 
+switch($_SERVER["HTTP_HOST"]){
+    case "localhost":
+    $pathAPP="/myPage/";
+    $colorNavigation="style=\"background-color: blue;\"";
+    break;
+    case "filip95.byethost24.com":
+    $pathAPP="/";
+    $colorNavigation="";
+    break;
+}
 
-   <?php include_once "template/footer.php" ?> 
-   <?php include_once "template/scripts.php" ?> 
-</body>
 
 
-
-</html>

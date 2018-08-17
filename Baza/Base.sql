@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 DROP DATABASE IF EXISTS Base1;
 CREATE DATABASE  Base1;
+=======
+DROP DATABASE IF EXISTS Base1.sql;
+CREATE DATABASE Base1.sql;
+>>>>>>> fa6bff5501e2dbb4dc2e68653a2edb79e219f1d8
 USE Base1;
 
 CREATE TABLE Ingredient(
@@ -13,6 +18,7 @@ CREATE TABLE Ingredient(
 
 
 
+<<<<<<< HEAD
 CREATE TABLE Ingredient_Recipe(
   IngredientId int not null,
   RecipeId int not null,
@@ -20,6 +26,19 @@ CREATE TABLE Ingredient_Recipe(
 );
 
 
+=======
+CREATE TABLE Ingredient(
+  Id int primary key auto_increment,
+  Name varchar(50),
+  Calories int,
+  Price decimal(18,2),
+  Published boolean ,
+  UserId int
+);
+
+
+
+>>>>>>> fa6bff5501e2dbb4dc2e68653a2edb79e219f1d8
 CREATE TABLE Recipe(
   Id int primary key not null auto_increment,
   Name varchar(50) not null,
@@ -44,9 +63,13 @@ CREATE TABLE AppUser_Recipe(
 
 ALTER TABLE Ingredient ADD FOREIGN KEY (UserId) references AppUser(Id);
 
+<<<<<<< HEAD
 ALTER TABLE Ingredient_Recipe ADD FOREIGN KEY (IngredientId) references Ingredient(Id);
 ALTER TABLE Ingredient_Recipe ADD FOREIGN KEY (RecipeId) references Recipe(Id);
 
+=======
+ALTER TABLE Ingredient ADD FOREIGN KEY (UserId) references AppUser(Id);
+>>>>>>> fa6bff5501e2dbb4dc2e68653a2edb79e219f1d8
 
 ALTER TABLE Recipe ADD FOREIGN KEY (UserId) references AppUser(Id);
 

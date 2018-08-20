@@ -2502,7 +2502,7 @@ ul.no-bullet, ol.no-bullet {
   text-align: center;
   cursor: pointer;
   background-color: #5291bc;
-  color: #fefefe; }
+  color: #000000; }
   [data-whatinput='mouse'] .button {
     outline: 0; }
   .button:hover, .button:focus {
@@ -4848,6 +4848,7 @@ html.is-reveal-open body {
     left: 2.75rem; }
 
 table {
+  text-align: left;
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 1rem;
@@ -4855,14 +4856,15 @@ table {
   table thead,
   table tbody,
   table tfoot {
-    border: 1px solid #f1f1f1;
-    background-color: #fefefe; }
+    border: 1px solid #ffffff;
+    background-color: #ffffff; }
   table caption {
     padding: 0.5rem 0.625rem 0.625rem;
     font-weight: bold; }
   table thead {
-    background: #f8f8f8;
-    color: #0a0a0a; }
+    text-align: center;
+    background: #ffffff;
+    color: #000000; }
   table tfoot {
     background: #f1f1f1;
     color: #0a0a0a; }

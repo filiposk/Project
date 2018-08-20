@@ -11,6 +11,6 @@ switch($_SERVER["HTTP_HOST"]){
     $pathAPP="/foundationProject/";
        break;
 }
-
-
+$conn = new PDO("mysql:host=localhost;dbname=base1", "filip", "filip");
+$conn->exec("set names utf8");
 

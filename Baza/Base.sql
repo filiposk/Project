@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS Base1;
-CREATE DATABASE  Base1;
+CREATE DATABASE  Base1 character set utf8;
 USE Base1;
 
 CREATE TABLE Ingredient(
@@ -24,8 +24,7 @@ CREATE TABLE Recipe(
   Id int primary key not null auto_increment,
   Name varchar(50) not null,
   Description varchar(50),
-  Picture varchar(255),
-  UserId int not null
+  Picture varchar(255)
 );
 
 
@@ -48,7 +47,7 @@ ALTER TABLE Ingredient_Recipe ADD FOREIGN KEY (IngredientId) references Ingredie
 ALTER TABLE Ingredient_Recipe ADD FOREIGN KEY (RecipeId) references Recipe(Id);
 
 
-ALTER TABLE Recipe ADD FOREIGN KEY (UserId) references AppUser(Id);
+
 
 ALTER TABLE AppUser_Recipe ADD FOREIGN KEY (UserId) references AppUser(Id);
 ALTER TABLE AppUser_Recipe ADD FOREIGN KEY (RecipeId) references Recipe(Id);

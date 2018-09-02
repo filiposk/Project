@@ -11,7 +11,7 @@
 <?php include_once "template/header.php" ?>
 <?php include_once "template/navigation.php" ?>
 
-About Us
+HTML,CSS,MYSQL,PHP,RESPONZIVE
 
 <?php include_once "template/footer.php" ?>
 <?php include_once "template/scripts.php" ?>

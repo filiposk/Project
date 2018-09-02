@@ -7,12 +7,12 @@ if(!isset($_GET["Id"]) && !isset($_POST["change"])){
     header('location:'.$pathAPP.'logout.php');
 }
 if(isset($_POST["change"])){
-    $query = $conn->prepare("update ingredient set Name=:Name, Calories=:Calories where Id=:Id;");
+    $query = $conn->prepare("update Ingredient set Name=:Name, Calories=:Calories where Id=:Id;");
     unset($_POST["change"]);
     $query->execute($_POST);
     header("location: index.php");
 }else{
-    $query = $conn->prepare("select * from ingredient where Id=:Id");
+    $query = $conn->prepare("select * from Ingredient where Id=:Id");
     $query->execute($_GET);
     $result = $query->fetch(PDO::FETCH_OBJ);
 }

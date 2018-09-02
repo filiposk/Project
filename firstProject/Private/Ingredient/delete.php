@@ -11,6 +11,6 @@ if(!isset($_GET["id"])){
 
 
 
-$query = $conn->prepare("delete from ingredient where Id=:Id");
+$query = $conn->prepare("delete from Ingredient where Id=:Id");
 $query->execute($_GET);
 header("location: index.php");

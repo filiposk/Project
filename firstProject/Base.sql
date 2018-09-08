@@ -24,7 +24,8 @@ CREATE TABLE Recipe(
   Id int primary key not null auto_increment,
   Name varchar(50) not null,
   Description varchar(50),
-  Picture varchar(255)
+  Picture varchar(255),
+  UserId int
 );
 
 
@@ -36,12 +37,9 @@ CREATE TABLE AppUser(
   Password varchar(20) not null
 );
 
-CREATE TABLE AppUser_Recipe(
-  UserId int not null,
-  RecipeId int not null
-);
-
 ALTER TABLE Ingredient ADD FOREIGN KEY (UserId) references AppUser(Id);
+
+ALTER TABLE Recipe ADD FOREIGN KEY (UserId) references AppUser(Id);
 
 ALTER TABLE Ingredient_Recipe ADD FOREIGN KEY (IngredientId) references Ingredient(Id);
 ALTER TABLE Ingredient_Recipe ADD FOREIGN KEY (RecipeId) references Recipe(Id);
@@ -49,5 +47,3 @@ ALTER TABLE Ingredient_Recipe ADD FOREIGN KEY (RecipeId) references Recipe(Id);
 
 
 
-ALTER TABLE AppUser_Recipe ADD FOREIGN KEY (UserId) references AppUser(Id);
-ALTER TABLE AppUser_Recipe ADD FOREIGN KEY (RecipeId) references Recipe(Id);

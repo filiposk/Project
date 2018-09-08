@@ -17,7 +17,9 @@ if(!isset($_SESSION["o"])){
 <?php include_once "../../template/navigation.php" ?>
 
 <?php
-$query =  $conn->prepare("select * from Recipe;");
+$query =  $conn->prepare("
+select a.Id, a.Name, a.Description, a.Picture, count(b.IngredientId) as namirnica from recipe a left join ingredient_recipe b on a.Id=b.RecipeId 
+group by a.Id, a.Name, a.Description, a.Picture;");
 $query->execute();
 $result = $query->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -39,10 +41,14 @@ $result = $query->fetchAll(PDO::FETCH_OBJ);
                 <tr>
                     <td><?php echo $row->Name; ?></td>
                     <td><?php echo $row->Description; ?></td>
+                    <?php
+                    if($row->namirnica==0)
+                    ?>
                     <td>
                         <a onclick="return confirm('Jeste li sigurni brisati= -><?php echo $row->Name; ?>?')" href="delete.php?id=<?php echo $row->Id; ?>">
                             <i class="fas fa-2x fa-trash-alt"></i>
                         </a>
+                    <?php endif; ?>
                         <a href="rewrite.php?Id=<?php echo $row->Id; ?>"><i class="fas fa-2x fa-edit"></i></a>
                     </td>
                 </tr>

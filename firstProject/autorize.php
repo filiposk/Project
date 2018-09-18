@@ -8,9 +8,8 @@ if($_POST["userName"]===""){
     exit;
 }
 
-if(($_POST["userName"]==="filip" && $_POST["pass"]==="f")
-    ||
-    ($_POST["userName"]==="edunova" && $_POST["pass"]==="e")
+if(($_POST["userName"]==="admin" && $_POST["pass"]==="admin")
+    
 ){
     //pusti dalje
     session_start();
@@ -19,3 +18,13 @@ if(($_POST["userName"]==="filip" && $_POST["pass"]==="f")
 }else{
     header("location: login.php");
 }
+?>
+  <script>
+function validateForm() {
+    var x = document.forms["myForm"]["userName"].value;
+    if (x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+}
+</script>

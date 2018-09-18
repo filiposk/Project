@@ -48,7 +48,7 @@ $result = $query->fetchAll(PDO::FETCH_OBJ);
                         <a onclick="return confirm('Jeste li sigurni brisati= -><?php echo $row->Name; ?>?')" href="delete.php?id=<?php echo $row->Id; ?>">
                             <i class="fas fa-2x fa-trash-alt"></i>
                         </a>
-                    <?php endif; ?>
+                    
                         <a href="rewrite.php?Id=<?php echo $row->Id; ?>"><i class="fas fa-2x fa-edit"></i></a>
                     </td>
                 </tr>

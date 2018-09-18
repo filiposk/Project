@@ -6,7 +6,7 @@ $titleAPP="Računanje Kalorija";
 switch($_SERVER["HTTP_HOST"]){
     case "localhost":
     $pathAPP="/firstProject/";
-        $conn = new PDO("mysql:host=localhost;dbname=Base1", "edunova", "edunova");
+        $conn = new PDO("mysql:host=localhost;dbname=Base1", "filip", "filip");
         $conn->exec("set names utf8");
         break;
     case "filip123.byethost3.com":

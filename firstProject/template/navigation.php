@@ -21,9 +21,9 @@
     </ul>
 
   </div>
-  <div class="top-bar-right">
+  <div  class="top-bar-right">
      <div class="top-bar-right">
-          <ul class="menu">
+          <ul  class="menu">
               <?php
               if(isset($_SESSION["o"]))
               {

@@ -17,8 +17,8 @@ header('location:'.$pathAPP.'logout.php');
 <?php include_once "../../template/navigation.php" ?>
 
 <?php
-$query =  $conn->prepare("select a.Id,a.UserName, a.NickName, count(b.id) as recepata,count(c.Id) as namirnica from appuser a left join recipe b on a.Id=b.UserId 
-left join ingredient c on a.Id=c.UserId
+$query =  $conn->prepare("select a.Id,a.UserName, a.NickName, count(b.id) as recepata,count(c.Id) as namirnica from AppUser a left join recipe b on a.Id=b.UserId 
+left join Ingredient c on a.Id=c.UserId
 group by a.Id,a.UserName, a.NickName ;");
 $query->execute();
 $result = $query->fetchAll(PDO::FETCH_OBJ);
@@ -65,3 +65,5 @@ $result = $query->fetchAll(PDO::FETCH_OBJ);
 
 </body>
 </html>
+
+ftg

@@ -18,7 +18,7 @@ if(!isset($_SESSION["o"])){
 
 <?php
 $query =  $conn->prepare("
-select a.Id, a.Name, a.Description, a.Picture, count(b.IngredientId) as namirnica from recipe a left join ingredient_recipe b on a.Id=b.RecipeId 
+select a.Id, a.Name, a.Description, a.Picture, count(b.IngredientId) as namirnica from recipe a left join Ingredient_Recipe b on a.Id=b.RecipeId 
 group by a.Id, a.Name, a.Description, a.Picture;");
 $query->execute();
 $result = $query->fetchAll(PDO::FETCH_OBJ);

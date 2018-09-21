@@ -14,7 +14,7 @@
 
 
 
-<form name="myForm" class="callout text-center"  class="small-4 cell" action="autorize.php" method="post">
+<form id="myForm" class="callout text-center"  class="small-4 cell" action="autorize.php" method="post">
     <h2>Prijavi se</h2>
     <div class="floated-label-wrapper">
         <label for="userName">Full name</label>

@@ -1,42 +1,4 @@
 
-<style>
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    }
-
-    /* Modal Content/Box */
-    .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto; /* 15% from the top and centered */
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%; /* Could be more or less, depending on screen size */
-    }
-
-    /* The Close Button */
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-</style>
 <div class="top-bar">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
@@ -71,7 +33,7 @@
               }
               else
               {
-              echo "<button><a><i class=\"fas fa-2x fa-sign-in-alt\"></i></a></button>";
+              echo "<button id='modal_open'><a><i class=\"fas fa-2x fa-sign-in-alt\"></i></a></button>";
               }
               ?>
           </ul>
@@ -84,3 +46,124 @@
     </div>
 </div>
 
+
+
+<div id="modal_wrapper">
+    <div id="modal_window">
+
+        <div style="text-align: right;"><a id="modal_close" href="#"><b>X</b></a></div>
+
+
+
+        <form id="modal_feedback" method="POST" action="autorize.php" accept-charset="UTF-8">
+            <h2>Prijava</h2>
+            <div class="floated-label-wrapper">
+                <label for="full-name">Ime</label>
+                <input type="text" id="full-name" name="full name input" placeholder="Korisničko ime">
+            </div>
+            <div class="floated-label-wrapper">
+                <label for="pass">Lozinka</label>
+                <input type="password" id="pass" name="password input" placeholder="Lozinka">
+
+
+            <input class="button expanded" type="submit" value="Prijavi se">
+        </form>
+
+    </div> <!-- #modal_window -->
+</div> <!-- #modal_wrapper -->
+
+<script type="text/javascript">
+
+    // Original JavaScript code by Chirp Internet: www.chirp.com.au
+    // Please acknowledge use of this code by including this header.
+
+    var checkForm = function(e)
+    {
+        var form = (e.target) ? e.target : e.srcElement;
+        if(form.name.value == "") {
+            alert("Please enter your Name");
+            form.name.focus();
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+            return;
+        }
+        if(form.email.value == "") {
+            alert("Please enter a valid Email address");
+            form.email.focus();
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+            return;
+        }
+        if(form.message.value == "") {
+            alert("Please enter your comment or question in the Message box");
+            form.message.focus();
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+            return;
+        }
+    };
+
+</script>
+<script type="text/javascript">
+
+    // Original JavaScript code by Chirp Internet: www.chirp.com.au
+    // Please acknowledge use of this code by including this header.
+
+    var modal_init = function() {
+
+        var modalWrapper = document.getElementById("modal_wrapper");
+        var modalWindow  = document.getElementById("modal_window");
+
+        var openModal = function(e)
+        {
+            modalWrapper.className = "overlay";
+            var overflow = modalWindow.offsetHeight - document.documentElement.clientHeight;
+            if(overflow > 0) {
+                modalWindow.style.maxHeight = (parseInt(window.getComputedStyle(modalWindow).height) - overflow) + "px";
+            }
+            modalWindow.style.marginTop = (-modalWindow.offsetHeight)/2 + "px";
+            modalWindow.style.marginLeft = (-modalWindow.offsetWidth)/2 + "px";
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        };
+
+        var closeModal = function(e)
+        {
+            modalWrapper.className = "";
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+        };
+
+        var clickHandler = function(e) {
+            if(!e.target) e.target = e.srcElement;
+            if(e.target.tagName == "DIV") {
+                if(e.target.id != "modal_window") closeModal(e);
+            }
+        };
+
+
+        var keyHandler = function(e) {
+            if(e.keyCode == 27) closeModal(e);
+        };
+
+        if(document.addEventListener) {
+            document.getElementById("modal_open").addEventListener("click", openModal, false);
+            document.getElementById("modal_close").addEventListener("click", closeModal, false);
+            document.addEventListener("click", clickHandler, false);
+            document.addEventListener("keydown", keyHandler, false);
+        } else {
+            document.getElementById("modal_open").attachEvent("onclick", openModal);
+            document.getElementById("modal_close").attachEvent("onclick", closeModal);
+            document.attachEvent("onclick", clickHandler);
+            document.attachEvent("onkeydown", keyHandler);
+        }
+
+    };
+
+</script>
+<script type="text/javascript">
+
+    if(document.addEventListener) {
+        document.getElementById("modal_feedback").addEventListener("submit", checkForm, false);
+        document.addEventListener("DOMContentLoaded", modal_init, false);
+    } else {
+        document.getElementById("modal_feedback").attachEvent("onsubmit", checkForm);
+        window.attachEvent("onload", modal_init);
+    }
+
+</script>

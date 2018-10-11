@@ -19,12 +19,3 @@ if(($_POST["userName"]==="admin" && $_POST["pass"]==="admin")
     header("location: login.php");
 }
 ?>
-  <script>
-function validateForm() {
-    var x = document.forms["myForm"]["userName"].value;
-    if (x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-}
-</script>

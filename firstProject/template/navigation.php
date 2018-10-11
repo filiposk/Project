@@ -2,7 +2,7 @@
 <div class="top-bar">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-        <img  src="template/logo.png" style="width:70px;height:60px;">
+
         <?php
         itemNavigation($pathAPP,"index.php","<i class=\"fas fa-2x fa-home\"></i>");
         itemNavigation($pathAPP,"aboutUs.php","<i class=\"fas fa-2x fa-info\"></i>");
@@ -58,15 +58,15 @@
         <form id="modal_feedback" method="POST" action="autorize.php" accept-charset="UTF-8">
             <h2>Prijava</h2>
             <div class="floated-label-wrapper">
-                <label for="full-name">Ime</label>
-                <input type="text" id="full-name" name="full name input" placeholder="Korisničko ime">
+                <label for="userName">Ime</label>
+                <input type="text"  name="userName" placeholder="admin">
             </div>
             <div class="floated-label-wrapper">
                 <label for="pass">Lozinka</label>
-                <input type="password" id="pass" name="password input" placeholder="Lozinka">
+                <input type="password" name="pass" placeholder="admin">
 
 
-            <input class="button expanded" type="submit" value="Prijavi se">
+            <input class="button expanded" type="submit"  value="Prijavi se">
         </form>
 
     </div> <!-- #modal_window -->

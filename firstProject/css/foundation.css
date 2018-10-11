@@ -5138,6 +5138,11 @@ a.thumbnail {
       flex-wrap: wrap; }
   .top-bar,
   .top-bar ul {
+    background-image: url("logo.png");
+    background-size: 80px 70px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 90% 0% ;
     background-color: #ffd430; }
   .top-bar input {
     max-width: 200px;

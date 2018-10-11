@@ -13,7 +13,6 @@ if(!isset($_SESSION["o"])){
 </head>
 
 <body>
-<?php include_once "../../template/header.php" ?>
 <?php include_once "../../template/navigation.php" ?>
 
 <?php

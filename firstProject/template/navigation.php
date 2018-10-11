@@ -40,6 +40,7 @@
 <div class="top-bar">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
+        <img  src="template/logo.png" style="width:70px;height:60px;">
         <?php
         itemNavigation($pathAPP,"index.php","<i class=\"fas fa-2x fa-home\"></i>");
         itemNavigation($pathAPP,"aboutUs.php","<i class=\"fas fa-2x fa-info\"></i>");
@@ -70,68 +71,16 @@
               }
               else
               {
-              echo "<button id=\"myBtn\"><i class=\"fas fa-2x fa-sign-in-alt\"></i></button>";
+              echo "<button><a><i class=\"fas fa-2x fa-sign-in-alt\"></i></a></button>";
               }
               ?>
           </ul>
       </div>
 
   </div>
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
 
-        <!-- Modal content -->
-        <div class="modal-content">
-            <form id="myForm" class="callout text-center"  class="small-4 cell" action="autorize.php" method="post">
-                <h2>Prijavi se</h2>
-                <div class="floated-label-wrapper">
-                    <label for="userName">Full name</label>
-                    <input type="text" id="userName" name="userName" placeholder="admin">
-                </div>
 
-                <div class="floated-label-wrapper">
-                    <label for="pass">Password</label>
-                    <input type="password" id="pass" name="pass" placeholder="admin">
-                </div>
-                <input class="button expanded" type="submit" value="Sign up">
-            </form>
-            <script>
-                function validateForm() {
-                    var x = document.forms["myForm"]["fname"].value;
-                    if (x == "") {
-                        alert("Name must be filled out");
-                        return false;
-                    }
-                }
-            </script>
-        </div>
 
     </div>
 </div>
-<script>
-    // Get the modal
-    var modal = document.getElementById('myModal');
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on the button, open the modal
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>

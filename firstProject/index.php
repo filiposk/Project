@@ -8,14 +8,37 @@
 </head>
 
 <body>
-<?php include_once "template/header.php" ?>
+
 <?php include_once "template/navigation.php" ?>
 
-<img src="https://fitnes-uciliste.hr/wp-content/uploads/2015/02/meta.jpg"  height="50%" width="50%" style="margin-right: auto;margin-left: auto;">
+<div class="input-group searchbar">
+    <div class="input-group-button">
+        <button class="button search">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <input class="input-field search-field" type="search" placeholder="Pretraži namirnicu" />
+</div>
 
 
 <?php include_once "template/scripts.php" ?>
 <?php include_once "template/footer.php" ?>
 
 </body>
+<script>
+    $(document).foundation();
+
+    $(function() {
+        $('.search')
+            .bind('click', function(event) {
+                $(".search-field").toggleClass("expand-search");
+
+                // if the search field is expanded, focus on it
+                if ($(".search-field").hasClass("expand-search")) {
+                    $(".search-field").focus();
+                }
+            })
+    });
+
+</script>
 </html>

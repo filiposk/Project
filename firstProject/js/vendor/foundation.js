@@ -5099,10 +5099,10 @@ var Foundation = {
         var $el = __WEBPACK_IMPORTED_MODULE_0_jquery___default()(this),
             opts = {};
         // Don't double-dip on plugins
-        if ($el.data('zfPlugin')) {
-          console.warn("Tried to initialize " + name + " on an element that already has a Foundation plugin.");
-          return;
-        }
+        // if ($el.data('zfPlugin')) {
+        //   console.warn("Tried to initialize " + name + " on an element that already has a Foundation plugin.");
+        //   return;
+        // }
 
         if ($el.attr('data-options')) {
           var thing = $el.attr('data-options').split(';').forEach(function (e, i) {

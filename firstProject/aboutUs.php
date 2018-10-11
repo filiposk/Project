@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<?php include_once "template/header.php" ?>
+
 <?php include_once "template/navigation.php" ?>
 
 HTML,CSS,MYSQL,PHP,RESPONZIVE,JS

@@ -10,15 +10,53 @@
 <body>
 
 <?php include_once "template/navigation.php" ?>
+<?php
+$requirement="";
+if(isset($_GET["requirement"])){
+    $requirement = $_GET["requirement"];
+}
+$query =  $conn->prepare(" select Name , Calories from Ingredient a inner join appuser b
+ on a.UserId=b.id where concat(a.name,'',a.calories) like :requirement");
+$query->bindValue("requirement","%" . $requirement . "%");
+$query->execute();
+$result = $query->fetchAll(PDO::FETCH_OBJ);
 
-<div class="input-group searchbar">
-    <div class="input-group-button">
-        <button class="button search">
-            <i class="fas fa-search"></i>
-        </button>
-    </div>
-    <input class="input-field search-field" type="search" placeholder="Pretraži namirnicu" />
-</div>
+?>
+<form action="<?php echo $_SERVER["PHP_SELF"] ?>">
+    <input type="text" name="requirement" value="<?php echo $requirement ?>">
+    <input type="submit" value="Traži" class="button expanded"/>
+</form>
+
+<!--<div class="input-group searchbar">-->
+<!--    <div class="input-group-button">-->
+<!--        <button class="button search">-->
+<!--            <i class="fas fa-search"></i>-->
+<!--        </button>-->
+<!--    </div>-->
+<!--    <input class="input-field search-field" type="search" name="requirement" value="--><?php //echo $requirement?><!--" placeholder="Pretraži namirnicu" />-->
+<!--    <div></div>-->
+<!--    <input type="submit" value="Traži" class="button expanded"/>-->
+<!--</div>-->
+<table>
+    <thead>
+    <tr>
+
+        <th>Ime</th>
+        <th>Kalorije</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach($result as $row):?>
+        <tr>
+
+            <td><?php echo $row->Name; ?></td>
+            <td><?php echo $row->Calories; ?></td>
+
+        </tr>
+    <?php endforeach;?>
+    </tbody>
+</table>
 
 
 <?php include_once "template/scripts.php" ?>

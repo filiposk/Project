@@ -2,7 +2,7 @@
 <div class="top-bar">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-
+        <li><img class="img-logo" src="<?php echo $pathAPP ?>template/logo.png" alt="Logo"></li>
         <?php
         itemNavigation($pathAPP,"index.php","<i class=\"fas fa-2x fa-home\"></i>");
         itemNavigation($pathAPP,"aboutUs.php","<i class=\"fas fa-2x fa-info\"></i>");
@@ -53,24 +53,53 @@
 
         <div style="text-align: right;"><a id="modal_close" href="#"><b>X</b></a></div>
 
+        <div id="logForm">
+            <form id="modal_feedback" method="POST" action="autorize.php" accept-charset="UTF-8">
+                <h2>Prijava</h2>
+                <div class="floated-label-wrapper">
+                    <label for="userName">Ime</label>
+                    <input type="text" name="userName" placeholder="admin"/>
+                </div>
+                <div class="floated-label-wrapper">
+                    <label for="pass">Lozinka</label>
+                    <input type="password" name="pass" placeholder="admin"/>
 
 
-        <form id="modal_feedback" method="POST" action="autorize.php" accept-charset="UTF-8">
-            <h2>Prijava</h2>
-            <div class="floated-label-wrapper">
-                <label for="userName">Ime</label>
-                <input type="text"  name="userName" placeholder="admin">
-            </div>
-            <div class="floated-label-wrapper">
-                <label for="pass">Lozinka</label>
-                <input type="password" name="pass" placeholder="admin">
-
-
-            <input class="button expanded" type="submit"  value="Prijavi se">
-        </form>
-
+                    <input class="button expanded" type="submit" value="Prijavi se">
+                    <input id="btnRegister" class="button expanded " type="button" value="Registriraj se"/>
+                </div>
+            </form>
+        </div>
+<!--        <div id="regForm">-->
+<!--            <form id="modal_feedback" method="POST" action="#" accept-charset="UTF-8">-->
+<!--                <h2>Registracija</h2>-->
+<!--                <div class="floated-label-wrapper">-->
+<!---->
+<!--                    <input type="text" name="userName" placeholder="Ime"/>-->
+<!--                </div>-->
+<!--                <div class="floated-label-wrapper">-->
+<!---->
+<!--                    <input type="text" name="userName" placeholder="Nadimak"/>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="floated-label-wrapper">-->
+<!---->
+<!--                    <input type="password" name="pass" placeholder="Lozinka"/>-->
+<!--                </div>-->
+<!--                <div class="floated-label-wrapper">-->
+<!---->
+<!--                    <input type="password" name="cpass" placeholder="Ponovi lozinku"/>-->
+<!--                </div>-->
+<!--                <div class="floated-label-wrapper">-->
+<!--                    <input class="button expanded" type="submit" value="Prijavi se"/>-->
+<!--                    <input id="btnRegister" class="button expanded " type="submit" value="Registriraj se"/>-->
+<!--                </div>-->
+<!--            </form>-->
+        </div>
     </div> <!-- #modal_window -->
 </div> <!-- #modal_wrapper -->
+
+
 
 <script type="text/javascript">
 
@@ -167,3 +196,19 @@
     }
 
 </script>
+
+<!--<script>-->
+<!---->
+<!--    document.addEventListener('DOMContentLoaded', function(){-->
+<!--        var reg = document.getElementById('regForm');-->
+<!--        button.onclick = reg.display;-->
+<!--    }, false);-->
+<!---->
+<!--    document.addEventListener('DOMContentLoaded', function(){-->
+<!--        var button = document.getElementById('btnRegister');-->
+<!--        button.onclick = reg.display;-->
+<!--    }, false);-->
+<!---->
+<!---->
+<!---->
+<!--</script>-->

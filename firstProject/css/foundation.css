@@ -2496,7 +2496,7 @@ ul.no-bullet, ol.no-bullet {
   -webkit-appearance: none;
   border: 1px solid transparent;
   border-radius: 0;
-  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+
   font-size: 0.9rem;
   line-height: 1;
   text-align: center;
@@ -2898,6 +2898,7 @@ label {
   min-width: 0; }
 
 .input-group-button {
+
   padding-top: 0;
   padding-bottom: 0;
   text-align: center;
@@ -5138,12 +5139,13 @@ a.thumbnail {
       flex-wrap: wrap; }
   .top-bar,
   .top-bar ul {
-    background-image: url("logo.png");
-    background-size: 80px 70px;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: 90% 0% ;
-    background-color: #ffd430; }
+    /*background-image: url("logo.png");*/
+    /*background-size: 80px 70px;*/
+    /*background-repeat: no-repeat;*/
+    /*background-attachment: fixed;*/
+    /*background-position: 90% 0% ;*/
+    background-color: #ffd430;
+  }
   .top-bar input {
     max-width: 200px;
     margin-right: 1rem; }

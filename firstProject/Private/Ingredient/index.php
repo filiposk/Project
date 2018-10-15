@@ -11,6 +11,7 @@
 <?php include_once "../../template/navigation.php" ?>
 
 <?php
+
 $query =  $conn->prepare("select * from Ingredient ;");
 $query->execute();
 $result = $query->fetchAll(PDO::FETCH_OBJ);

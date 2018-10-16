@@ -15,9 +15,8 @@ $requirement="";
 if(isset($_GET["requirement"])){
     $requirement = $_GET["requirement"];
 }
-$query =  $conn->prepare(" select Name , Calories from Ingredient a inner join appuser b
- on a.UserId=b.id where concat(a.name,'',a.calories) like :requirement");
-$query->bindValue("requirement","%" . $requirement . "%");
+$query =  $conn->prepare(" select Name , Calories from Ingredient  where concat(Name,' ',Calories) like :requirement");
+$query->bindValue("requirement", $requirement . "%");
 $query->execute();
 $result = $query->fetchAll(PDO::FETCH_OBJ);
 

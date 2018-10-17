@@ -21,21 +21,24 @@ $query->execute();
 $result = $query->fetchAll(PDO::FETCH_OBJ);
 
 ?>
-<form action="<?php echo $_SERVER["PHP_SELF"] ?>">
-    <input type="text" name="requirement" value="<?php echo $requirement ?>">
-    <input type="submit" value="Traži" class="button expanded"/>
-</form>
 
-<!--<div class="input-group searchbar">-->
-<!--    <div class="input-group-button">-->
-<!--        <button class="button search">-->
-<!--            <i class="fas fa-search"></i>-->
-<!--        </button>-->
-<!--    </div>-->
-<!--    <input class="input-field search-field" type="search" name="requirement" value="--><?php //echo $requirement?><!--" placeholder="Pretraži namirnicu" />-->
-<!--    <div></div>-->
-<!--    <input type="submit" value="Traži" class="button expanded"/>-->
-<!--</div>-->
+
+
+    <divclass="input-group searchbar">
+        <div class="input-group-button">
+            <button class="button search" ">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <form action="<?php echo $_SERVER["PHP_SELF"] ?>">
+
+            <input class="input-field search-field" type="search" name="requirement" value="<?php echo $requirement?>" placeholder="Pretraži namirnicu" />
+        </form>
+        <div></div>
+
+    </div>
+
+
 <table>
     <thead>
     <tr>
@@ -76,6 +79,7 @@ $result = $query->fetchAll(PDO::FETCH_OBJ);
                 }
             })
     });
+
 
 </script>
 </html>

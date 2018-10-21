@@ -11,8 +11,7 @@
 
 <?php include_once "../template/navigation.php" ?>
 
-Ploča
-
+<img src="era.png" class="era-img">
 <?php include_once "../template/scripts.php" ?>
 <?php include_once "../template/footer.php" ?>
 ..

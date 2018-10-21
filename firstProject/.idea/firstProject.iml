@@ -5,5 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Edunova07" />
+    <orderEntry type="module" module-name="NIVAGO" />
+    <orderEntry type="module" module-name="viki programiranje" />
   </component>
 </module>

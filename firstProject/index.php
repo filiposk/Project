@@ -1,10 +1,13 @@
+
+
+
 <?php include_once "config.php" ?>
+<?php include_once "template/scripts.php" ?>
 <!doctype html>
 
 <html lang="en">
 <head>
 <?php include_once "template/head.php" ?>
-
 </head>
 
 <body>
@@ -24,21 +27,19 @@ $result = $query->fetchAll(PDO::FETCH_OBJ);
 
 
 
-    <divclass="input-group searchbar">
+    <div class="input-group searchbar">
         <div class="input-group-button">
             <button class="button search" ">
                 <i class="fas fa-search"></i>
             </button>
         </div>
         <form action="<?php echo $_SERVER["PHP_SELF"] ?>">
-
-            <input class="input-field search-field" type="search" name="requirement" value="<?php echo $requirement?>" placeholder="Pretraži namirnicu" />
+            <input autocomplete="off" class="input-field search-field" type="search" name="requirement" value="<?php echo $requirement?>" placeholder="Pretraži namirnicu" />
         </form>
         <div></div>
-
     </div>
 
-
+<?php if (isset($_GET["requirement"])): ?>
 <table>
     <thead>
     <tr>
@@ -59,9 +60,9 @@ $result = $query->fetchAll(PDO::FETCH_OBJ);
     <?php endforeach;?>
     </tbody>
 </table>
+<?php endif; ?>
 
 
-<?php include_once "template/scripts.php" ?>
 <?php include_once "template/footer.php" ?>
 
 </body>
@@ -80,6 +81,27 @@ $result = $query->fetchAll(PDO::FETCH_OBJ);
             })
     });
 
+</script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $("#requirement").autocomplete({
+        source:"private/ingredient/searchIngredient.php",
+        minLength: 2,
+        focus:
+            function(event,ui){
+                event.preventDefault();
+                debugger;
+            },
+        select:
+            function(event,ui){
+                event.preventDefault();
+                debugger;
+            }
+        })
+        .data("ui-autocomplete")._renderItem=function(ul,namirnica) {
+            return $("<li> <span>" + namirnica.name + "</span> </li>");
+        }
 
 </script>
 </html>

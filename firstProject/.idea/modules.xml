@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../Edunova07/.idea/Edunova07.iml" filepath="$PROJECT_DIR$/../Edunova07/.idea/Edunova07.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../NIVAGO/.idea/NIVAGO.iml" filepath="$PROJECT_DIR$/../NIVAGO/.idea/NIVAGO.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/firstProject.iml" filepath="$PROJECT_DIR$/.idea/firstProject.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/viki programiranje/.idea/viki programiranje.iml" filepath="$USER_HOME$/Desktop/viki programiranje/.idea/viki programiranje.iml" />
     </modules>
   </component>
 </project>

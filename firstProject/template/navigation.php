@@ -45,9 +45,7 @@
 
 
 <div id="signInModal" class="reveal small" data-reveal>
-    <div style="text-align: right;"><a href="#"><b>X</b></a></div>
 
-    <div>
         <form method="POST" action="autorize.php" accept-charset="UTF-8">
             <h2>Prijava</h2>
             <div class="floated-label-wrapper">

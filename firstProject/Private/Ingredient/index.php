@@ -35,10 +35,11 @@ $result = $query->fetchAll(PDO::FETCH_OBJ);
                     <td><?php echo $row->Name; ?></td>
                     <td><?php echo $row->Calories; ?></td>
                     <td>
+                        <a href="rewrite.php?Id=<?php echo $row->Id; ?>"><i class="fas fa-2x fa-edit"></i></a>
                         <a onclick="return confirm('Jeste li sigurni brisati= -><?php echo $row->Name; ?>?')" href="delete.php?Id=<?php echo $row->Id; ?>">
                             <i class="fas fa-2x fa-trash-alt"></i>
                         </a>
-                        <a href="rewrite.php?Id=<?php echo $row->Id; ?>"><i class="fas fa-2x fa-edit"></i></a>
+
                     </td>
 
                 </tr>

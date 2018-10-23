@@ -16,6 +16,6 @@ if(($_POST["userName"]==="admin" && $_POST["pass"]==="admin")
     $_SESSION["o"]= $_POST["userName"];
     header("location: Private/controlBoard.php");
 }else{
-    header("location: login.php");
+    header("location: index.php");
 }
 ?>

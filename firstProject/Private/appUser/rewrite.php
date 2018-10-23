@@ -20,7 +20,7 @@ if(isset($_POST["change"])){
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
 <head>
-    <?php include_once "../../template/header.php"; ?>
+
     <?php include_once "../../template/head.php"; ?>
 </head>
 <body>

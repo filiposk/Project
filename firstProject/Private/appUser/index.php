@@ -16,7 +16,25 @@ header('location:'.$pathAPP.'logout.php');
 <?php include_once "../../template/navigation.php" ?>
 
 <?php
-$query =  $conn->prepare("select * from AppUser ;");
+//klasa koja predstavlja podatke iz baze
+
+class appuserViewModel {
+    public $Id;
+    public $UserName;
+    public $NickName;
+    public $Password;
+    public $namirnice;
+}
+
+$query =  $conn->prepare("
+select distinct  
+	a.Id,
+    a.UserName,
+    a.NickName,
+    a.Password,
+    (select COUNT(ingredient.UserId) from ingredient where a.Id = ingredient.UserId) as broj_namirnica
+    from appuser a 
+    left join ingredient b on a.Id = b.UserId;");
 $query->execute();
 $result = $query->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -30,21 +48,27 @@ $result = $query->fetchAll(PDO::FETCH_OBJ);
             <tr style="color:#000000;">
                 <th>Ime</th>
                 <th>Nadimak</th>
+                <th>Broj namirnica</th>
+
 
             </tr>
             </thead>
             <tbody>
-            <?php foreach($result as $row): ?>
+            <?php foreach ($result as $row): ?>
                 <tr>
                     <td><?php echo $row->UserName; ?></td>
                     <td><?php echo $row->NickName; ?></td>
-                    <td>
-                        <a onclick="return confirm('Jeste li sigurni brisati= -><?php echo $row->UserName; ?>?')" href="delete.php?Id=<?php echo $row->Id; ?>">
-                            <i class="fas fa-2x fa-trash-alt"></i>
-                        </a>
-                        <a href="rewrite.php?Id=<?php echo $row->Id; ?>"><i class="fas fa-2x fa-edit"></i></a>
-                    </td>
+                    <td><?php echo $row->broj_namirnica; ?></td>
 
+                    <td>
+                        <a href="rewrite.php?Id=<?php echo $row->Id; ?>"><i class="fas fa-2x fa-edit"></i></a>
+                        <?php if ($row->broj_namirnica < 1): ?>
+                            <a onclick="return confirm('Jeste li sigurni brisati= -><?php echo $row->UserName; ?>?')"
+                               href="delete.php?Id=<?php echo $row->Id; ?>">
+                                <i class="fas fa-2x fa-trash-alt"></i>
+                            </a>
+                        <?php endif; ?>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>

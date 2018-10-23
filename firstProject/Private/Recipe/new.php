@@ -18,7 +18,6 @@ if(isset($_POST["add"])){
 </head>
 <body>
 
-<?php include_once "../../template/header.php"; ?>
 <?php include_once "../../template/navigation.php"; ?><br>
 <!-- Form for creating new  -->
 <div class="grid-container">

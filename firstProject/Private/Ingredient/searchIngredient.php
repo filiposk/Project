@@ -1,5 +1,16 @@
 <?php
 include_once "../../config.php" ;
+
+$requirement="";
+if(isset($_GET["term"])){
+    $requirement = $_GET["term"];
+}
+$query =  $conn->prepare(" select Name , Calories from Ingredient  where concat(Name,' ',Calories) like :requirement");
+$query->bindValue("requirement", $requirement . "%");
+$query->execute();
+$result = $query->fetchAll(PDO::FETCH_OBJ);
+
+
 if(!isset($_SESSION["o"])){
     header("location: " . $pathAPP . "logout.php");
 }
@@ -10,17 +21,12 @@ if(!isset($_GET["id"])){
 
 $query = $conn->prepare("
  
-select Name , Calories from Ingredient
+select Name , Calories from Ingredient where Name like: requrement
 ");
-$izraz->execute(array(
-    "requirement" => "%" . $_GET["term"] . "%",
-    "grupa" => $_GET["sifraGrupe"]
+$query->execute(array(
+    "requirement" => "%" . $_GET["term"] . "%"
+
 ));
-$rezultati = $izraz->fetchAll(PDO::FETCH_OBJ);
-foreach($rezultati as $red){
-    if(file_exists("../../img/polaznici/" . $red->sifra . ".png")){
-        $red->slika = $putanjaAPP . "img/polaznici/" . $red->sifra . ".png";
-    }else{
-        $red->slika = $putanjaAPP . "img/nepoznato.png";
-    }
-}
+$result = $query->fetchAll(PDO::FETCH_OBJ);
+
+echo json_encode($result);
